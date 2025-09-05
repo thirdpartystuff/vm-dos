@@ -20,6 +20,9 @@ dosbox.config_sys('lastdrive=z')
 dosbox.autoexec_bat('imgmount c: .disk.vhd -t hdd')
 dosbox.autoexec_bat('c:')
 dosbox.autoexec_bat('call autoexec.bat')
+dosbox.autoexec_bat("echo.") -- put some empty lines after AUTOEXEC.BAT output
+dosbox.autoexec_bat("echo.")
+dosbox.autoexec_bat("echo.")
 
 local disk, DIR = mkdisk.create_named('C:', '.disk.vhd', '20m', 'fat16')
 disk:add_directory(DIR['/'], 'disk_c')
