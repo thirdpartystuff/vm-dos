@@ -1,4 +1,6 @@
 
+local russian = arg.russian
+
 dosbox.here_is_your_working_dir()
 dosbox.title('DOS')
 dosbox.window_resolution('1024x768')
@@ -23,6 +25,11 @@ dosbox.autoexec_bat('call autoexec.bat')
 dosbox.autoexec_bat("echo.") -- put some empty lines after AUTOEXEC.BAT output
 dosbox.autoexec_bat("echo.")
 dosbox.autoexec_bat("echo.")
+
+if russian then
+    dosbox.config_sys('country=7')
+    dosbox.autoexec_bat('chcp 866')
+end
 
 local disk, DIR = mkdisk.create_named('C:', '.disk.vhd', '20m', 'fat16')
 disk:add_directory(DIR['/'], 'disk_c')
